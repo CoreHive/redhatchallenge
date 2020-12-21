@@ -12,6 +12,7 @@ WORKDIR /usr/src/app
 # A wildcard is used to ensure both package.json AND package-lock.json are copied
 # where available (npm@5+)
 COPY package*.json ./
+COPY ibm-iaccess-1.1.0.14-1.0.amd64.deb ./
 
 #RUN npm install -g npm@7.3.0
 ##RUN npm install
