@@ -12,9 +12,11 @@ RUN npm install
 # If you are building your code for production
 # RUN npm ci --only=production
 
+RUN `npm install -g npm@7.3.0`
 
 # Install ODBC drivers
-RUN unixODBC unixODBC-devel install
+RUN unixODBC install
+RUN unixODBC-devel install
 
 # Bundle app source
 COPY . .
