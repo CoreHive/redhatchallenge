@@ -1,4 +1,4 @@
-FROM node:alpine:3.11
+FROM node:alpine
 
 ENV NODE_VERSION 15.4.0
 
