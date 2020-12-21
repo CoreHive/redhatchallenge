@@ -1,4 +1,4 @@
-FROM node:alpine
+FROM node:15
 
 # Create app directory
 WORKDIR /usr/src/app
@@ -13,10 +13,10 @@ RUN npm install
 # If you are building your code for production
 # RUN npm ci --only=production
 
-RUN yum update -y
+RUN apt-get update -y
 
 # Install ODBC drivers
-RUN yum install -y unixODBC unixODBC-devel
+RUN apt-get install -y unixODBC unixODBC-devel
 
 ## unixODBC
 ##RUN apt-get install -y unixodbc-dev unixodbc-bin unixodbc
