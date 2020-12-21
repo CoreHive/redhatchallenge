@@ -1,0 +1,37 @@
+include header.pug
+
+title List Patients
+
+//if search
+.container
+    .row
+        .col-lg
+            form(method='post', action='/listpatients')
+                .input-group.mb-3
+                    input.form-control(name='patname',type='text', placeholder="Patient Name", aria-label="Patient Name", aria-describedby="button-addon2")
+                    .input-group-append 
+                        input#button-addon2.btn.btn-outline-secondary(type='submit')
+//if listpatients
+.container
+    .row    
+        .col-md-4
+            img(src='logo_final.jpg', alt='Logo' width='100px') 
+            .h3 Welcome Message
+            .p Welcome to the telehealth client portal. 
+            .mb-4
+            .p We have seen a rise in the cases of COVID-19 in our clinic. Please be alert, be cautious, and wash your hands!
+        .col-md-8
+            table.table
+                tr 
+                    th Number
+                    th Name
+                    th Address
+                    th Social
+                each row in listpatients
+                    tr
+                        td
+                            a(href='/listpatients/' + row.PNUMBER)=row.PNUMBER
+                        td=row.PFIRSTNAME + ' ' + row.PLASTNAME
+                        td=row.PADDRESS1
+                        td=row.PSOCIALNUMBER
+    .mb-4

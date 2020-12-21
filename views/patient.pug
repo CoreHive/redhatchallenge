@@ -1,0 +1,31 @@
+include header.pug
+
+title Patient
+
+.container
+    .row    
+        .col-md-4
+            .h3 <b>Web Connect:</b>
+            img(src='../telehealth.png', alt='telehealth' width='100%')
+        .col-md-8
+            .col-md-1
+            .col-md-7
+                .h3 <b>Patient Info:</b>
+                each row in patient
+                    .p <b>Name: </b>
+                        id=row.PFIRSTNAME + ' ' + row.PMIDDLENAME + ' ' + row.PLASTNAME
+                    .p <b>Address: </b>
+                        id=row.PADDRESS1
+                    .p <b>Social Security Number: </b>  
+                        id=row.PSOCIALNUMBER
+    .mb-5
+    .row
+        .col-md-12
+            table.table
+                tr 
+                    th Date of Visit
+                    th Notes
+                each row in history
+                    tr
+                        td=row.HVISITDATE
+                        td=row.HDESCRIPTION1
