@@ -112,12 +112,12 @@ RUN apk add --no-cache --virtual .build-deps-yarn curl gnupg tar \
   # smoke test
   && yarn --version
 
-COPY docker-entrypoint.sh /usr/local/bin/
-ENTRYPOINT ["docker-entrypoint.sh"]
+#COPY docker-entrypoint.sh /usr/local/bin/
+#ENTRYPOINT ["docker-entrypoint.sh"]
 
 
 # Install ODBC drivers
-RUN apt-get install -y unixODBC unixODBC-devel
+RUN apk add unixODBC unixODBC-devel
 
 ## unixODBC
 ##RUN apt-get install -y unixodbc-dev unixodbc-bin unixodbc
