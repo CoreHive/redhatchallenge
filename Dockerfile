@@ -13,11 +13,13 @@ RUN npm install
 # If you are building your code for production
 # RUN npm ci --only=production
 
-###RUN yum -y install python
+RUN yum update -y
 
 # Install ODBC drivers
-RUN unixODBC install
-RUN unixODBC-devel install
+RUN yum install -y unixODBC unixODBC-devel
+
+## unixODBC
+##RUN apt-get install -y unixodbc-dev unixodbc-bin unixodbc
 
 # Bundle app source
 COPY . .
