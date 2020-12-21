@@ -18,7 +18,32 @@ RUN npm install
 #RUN apt-get update -y
 
 # Install ODBC drivers
-RUN apk add unixODBC unixODBC-devel
+#RUN apk add unixODBC unixODBC-devel
+
+RUN apt-get update -y \
+    && apt install python3 -y \
+    && apt install python3-pip -y \
+    && apt install python3-venv -y \
+    && python3 -m venv venv
+
+
+RUN apt-get -y install curl
+
+**#Install FreeTDS and dependencies for PyODBC**
+RUN apt-get update && apt-get install -y tdsodbc unixodbc-dev \
+ && apt install unixodbc-bin -y  \
+ && apt-get clean -y
+
+RUN apt-get update
+RUN apt-get install -y tdsodbc unixodbc-dev
+RUN apt install unixodbc-bin -y
+RUN apt-get clean -y
+
+RUN pip install pandas
+RUN pip install pyodbc
+RUN pip install DateTime
+RUN pip install multiprocess
+RUN pip install threaded
 
 ## unixODBC
 ##RUN apt-get install -y unixodbc-dev unixodbc-bin unixodbc
