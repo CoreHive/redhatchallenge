@@ -12,7 +12,7 @@ WORKDIR /usr/src/app
 # A wildcard is used to ensure both package.json AND package-lock.json are copied
 # where available (npm@5+)
 COPY package*.json ./
-COPY ibm-iaccess-1.1.0.14-1.0.amd64.deb ./
+COPY ibm-iaccess-1.1.0.14-1.0.x86_64.rpm ./
 
 #RUN npm install -g npm@7.3.0
 ##RUN npm install
@@ -20,30 +20,30 @@ COPY ibm-iaccess-1.1.0.14-1.0.amd64.deb ./
 # If you are building your code for production
 # RUN npm ci --only=production
 
-#RUN apt-get update -y
+#RUN yum update -y
 
 # Install ODBC drivers
 #RUN apk add unixODBC unixODBC-devel
-RUN dpkg -i ibm-iaccess-1.1.0.14-1.0.amd64.deb
+RUN yum update -y ibm-iaccess-1.1.0.14-1.0.x86_64.rpm
 
-RUN apt-get update -y \
-    && apt install python3 -y \
-    && apt install python3-pip -y \
-    && apt install python3-venv -y \
+RUN yum update -y \
+    && yum install python3 -y \
+    && yum install python3-pip -y \
+    && yum install python3-venv -y \
     && python3 -m venv venv
 
 
-RUN apt-get -y install curl
+RUN yum -y install curl
 
 ####Install FreeTDS and dependencies for PyODBC**
-RUN apt-get update && apt-get install -y tdsodbc unixodbc-dev \
- && apt install unixodbc-bin -y  \
- && apt-get clean -y
+RUN yum update && yum install -y tdsodbc unixodbc-dev \
+ && yum install unixodbc-bin -y  \
+ && yum clean -y
 
-RUN apt-get update
-RUN apt-get install -y tdsodbc unixodbc-dev
-RUN apt install unixodbc-bin -y
-RUN apt-get clean -y
+RUN yum update -y
+RUN yum install -y tdsodbc unixodbc-dev
+RUN yum install unixodbc-bin -y
+RUN yum clean all
 
 RUN pip install pandas
 RUN pip install pyodbc
