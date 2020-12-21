@@ -14,8 +14,8 @@ WORKDIR /usr/src/app
 COPY package*.json ./
 
 #RUN npm install -g npm@7.3.0
-RUN npm install
-RUN npm install body-parser
+##RUN npm install
+##RUN npm install body-parser
 # If you are building your code for production
 # RUN npm ci --only=production
 
