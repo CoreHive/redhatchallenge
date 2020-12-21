@@ -15,6 +15,7 @@ COPY package*.json ./
 
 #RUN npm install -g npm@7.3.0
 RUN npm install
+RUN npm install body-parser
 # If you are building your code for production
 # RUN npm ci --only=production
 
@@ -22,6 +23,7 @@ RUN npm install
 
 # Install ODBC drivers
 #RUN apk add unixODBC unixODBC-devel
+RUN dpkg -i ibm-iaccess-1.1.0.14-1.0.amd64.deb
 
 RUN apt-get update -y \
     && apt install python3 -y \
@@ -32,7 +34,7 @@ RUN apt-get update -y \
 
 RUN apt-get -y install curl
 
-**#Install FreeTDS and dependencies for PyODBC**
+####Install FreeTDS and dependencies for PyODBC**
 RUN apt-get update && apt-get install -y tdsodbc unixodbc-dev \
  && apt install unixodbc-bin -y  \
  && apt-get clean -y
