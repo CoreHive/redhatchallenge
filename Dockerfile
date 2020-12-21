@@ -1,4 +1,6 @@
-FROM node:15
+FROM alpine:3.11
+
+ENV NODE_VERSION 15.4.0
 
 # Create app directory
 WORKDIR /usr/src/app
