@@ -1,4 +1,4 @@
-FROM centos:8
+F ROM centos:8
 ENV container docker
 RUN (cd /lib/systemd/system/sysinit.target.wants/; for i in *; do [ $i == \
 systemd-tmpfiles-setup.service ] || rm -f $i; done); \
@@ -44,7 +44,7 @@ COPY ibm-iaccess-1.1.0.14-1.0.ppc64le.rpm ./
 
 RUN yum install -y ibm-iaccess-1.1.0.14-1.0.ppc64le.rpm ;\
 yum install -y unixODBC unixODBC-devel
-RUN npm install -g node-gyp
+#RUN npm install -g node-gyp
 RUN npm_config_user=root npm install odbc
 #RUN npm install -g odbc
 RUN npm config set proxy null
