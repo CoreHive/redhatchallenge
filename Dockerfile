@@ -16,7 +16,7 @@ ADD https://rpm.nodesource.com/setup_15.x /root/
 #RUN curl -sL https://rpm.nodesource.com/setup_8.x
 RUN bash /root/setup_15.x ;\  
 yum -y install nodejs ;\
-yum -y install python ;\
+yum -y install python3 ;\
 yum -y install java-1.8.0-openjdk ;\
 yum -y update
 
