@@ -1,4 +1,4 @@
-FROM centos:7.3.1611
+FROM centos:8
 
 ADD https://rpm.nodesource.com/setup_8.x /root/
 #RUN curl -sL https://rpm.nodesource.com/setup_8.x
