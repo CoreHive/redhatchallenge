@@ -1,4 +1,4 @@
-FROM ppc64le/node:alpine
+FROM ppc64le/node
 
 ENV NODE_VERSION 15.4.0
 
