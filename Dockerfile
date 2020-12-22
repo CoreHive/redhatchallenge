@@ -12,13 +12,9 @@ rm -f /lib/systemd/system/anaconda.target.wants/*;
 VOLUME [ "/sys/fs/cgroup" ]
 ##CMD ["/usr/sbin/init"]
 
-
-
-
-
 ADD https://rpm.nodesource.com/setup_8.x /root/
 #RUN curl -sL https://rpm.nodesource.com/setup_8.x
-#RUN bash /root/setup_8.x ;\  
+RUN bash /root/setup_8.x ;\  
 yum -y install nodejs ;\
 yum -y install java-1.8.0-openjdk
 yum -y install unixodbc-dev unixodbc-bin unixodbc
