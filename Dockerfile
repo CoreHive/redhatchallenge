@@ -50,7 +50,7 @@ RUN npm config set registry http://registry.npmjs.org/
 
 #RUN npm install -g node-gyp
 RUN npm install -g pug
-RUN npm install -g odbc
+RUN npm_config_user=root npm install -g odbc
 RUN npm install -g express 
 RUN npm install -g body-parser
 #RUN npm --registry http://registry.node-modules.io/ install -g express
