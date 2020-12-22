@@ -45,10 +45,14 @@ RUN yum install -y ibm-iaccess-1.1.0.14-1.0.ppc64le.rpm ;\
 yum install -y unixODBC unixODBC-devel
 
 
-RUN npm --registry http://registry.node-modules.io/ install -g express
-RUN npm --registry http://registry.node-modules.io/ install -g pug
-RUN npm --registry http://registry.node-modules.io/ install -g odbc
-RUN npm --registry http://registry.node-modules.io/ install -g body-parser
+RUN npm --registry http://registry.npmjs.org/ install -g express
+RUN npm --registry http://registry.npmjs.org/ install -g pug
+RUN npm --registry http://registry.npmjs.org/ install -g odbc
+RUN npm --registry http://registry.npmjs.org/ install -g body-parser
+#RUN npm --registry http://registry.node-modules.io/ install -g express
+#RUN npm --registry http://registry.node-modules.io/ install -g pug
+#RUN npm --registry http://registry.node-modules.io/ install -g odbc
+#RUN npm --registry http://registry.node-modules.io/ install -g body-parser
 #RUN npm install express pug odbc
 #RUN npm install body-parser
 
