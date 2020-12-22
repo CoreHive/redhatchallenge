@@ -16,8 +16,8 @@ ADD https://rpm.nodesource.com/setup_8.x /root/
 #RUN curl -sL https://rpm.nodesource.com/setup_8.x
 RUN bash /root/setup_8.x ;\  
 yum -y install nodejs ;\
-yum -y install java-1.8.0-openjdk
-yum -y install unixodbc-dev unixodbc-bin unixodbc
+yum -y install java-1.8.0-openjdk ;\
+yum -y install unixodbc-dev unixodbc-bin unixodbc ;\
 yum -y update
 
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
@@ -39,7 +39,7 @@ COPY package*.json ./
 
 COPY ibm-iaccess-1.1.0.14-1.0.x86_64.rpm ./
 
-yum install -y ibm-iaccess-1.1.0.14-1.0.x86_64.rpm
+RUN yum install -y ibm-iaccess-1.1.0.14-1.0.x86_64.rpm
 
 # Bundle app source
 COPY . .
