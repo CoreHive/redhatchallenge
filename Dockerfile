@@ -24,7 +24,7 @@ RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | b
 #RUN source $HOME/.bashrc && nvm install 12.14.1
 #RUN source $HOME/.bashrc && nvm install 15.2.1
 RUN source $HOME/.bashrc && nvm install node
-RUN source $HOME/.bashrc && nvm install node-gyp
+###RUN source $HOME/.bashrc && nvm install node-gyp
 
 #RUN ln -s $HOME/.nvm/versions/node/v12.14.1/bin/node /usr/bin/node
 #RUN ln -s $HOME/.nvm/versions/node/v12.14.1/bin/npm /usr/bin/npm
@@ -46,6 +46,7 @@ RUN yum install -y ibm-iaccess-1.1.0.14-1.0.ppc64le.rpm ;\
 yum install -y unixODBC unixODBC-devel
 
 
+RUN npm --registry http://registry.npmjs.org/ install -g node-gyp
 RUN npm --registry http://registry.npmjs.org/ install -g express
 RUN npm --registry http://registry.npmjs.org/ install -g pug
 RUN npm --registry http://registry.npmjs.org/ install -g odbc
