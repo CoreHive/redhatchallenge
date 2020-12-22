@@ -24,7 +24,7 @@ RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | b
 #RUN source $HOME/.bashrc && nvm install 12.14.1
 #RUN source $HOME/.bashrc && nvm install 15.2.1
 RUN source $HOME/.bashrc && nvm install node
-###RUN source $HOME/.bashrc && nvm install node-gyp
+#RUN source $HOME/.bashrc && nvm install node-gyp
 
 #RUN ln -s $HOME/.nvm/versions/node/v12.14.1/bin/node /usr/bin/node
 #RUN ln -s $HOME/.nvm/versions/node/v12.14.1/bin/npm /usr/bin/npm
@@ -48,7 +48,7 @@ RUN npm config set proxy null
 RUN npm config set https-proxy null
 RUN npm config set registry http://registry.npmjs.org/
 
-#RUN npm install -g node-gyp
+RUN npm install -g node-gyp
 RUN npm install -g pug
 RUN npm_config_user=root npm install -g odbc
 RUN npm install -g express 
