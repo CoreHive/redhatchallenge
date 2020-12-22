@@ -17,6 +17,7 @@ ADD https://rpm.nodesource.com/setup_15.x /root/
 RUN bash /root/setup_15.x ;\  
 yum -y install nodejs ;\
 yum -y install gcc make ;\
+yum -y install gcc-g++ ;\
 yum -y install python3 ;\
 yum -y install java-1.8.0-openjdk ;\
 yum -y update
