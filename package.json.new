@@ -1,0 +1,44 @@
+{
+  "name": "patient360",
+  "version": "2.0.0",
+  "description": "A generated IBM Cloud application",
+  "private": true,
+  "engines": {
+    "node": "^6.9.0"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "debug": "node --debug index.js",
+    "test": "nyc mocha",
+    "build": "npm run build:idt",
+    "idt:build": "node idt.js build",
+    "idt:test": "node idt.js test",
+    "idt:debug": "node idt.js debug",
+    "idt:run": "node idt.js run",
+    "idt:deploy": "node idt.js deploy",
+    "idt:install": "node idt.js install"
+  },
+  "dependencies": {
+    "appmetrics": "^3.0.1",
+    "appmetrics-dash": "^3.3.3",
+    "appmetrics-prometheus": "^0.0.2",
+    "appmetrics-zipkin": "^1.0.4",
+    "body-parser": "^1.17.2",
+    "ejs": "^2.5.6",
+    "express": "^4.15.3",
+    "ibm-cloud-env": "^0",
+    "log4js": "^4.0.2"
+  },
+  "devDependencies": {
+    "chai": "^4.0.0",
+    "grunt": "^1.0.1",
+    "grunt-purifycss": "^0.1.2",
+    "gulp": "^4.0.0",
+    "gulp-livereload": "^4.0.1",
+    "gulp-nodemon": "^2.2.1",
+    "gulp-notify": "^3.0.0",
+    "mocha": "^6.0.2",
+    "nyc": "^13.3.0",
+    "proxyquire": "^1.8.0"
+  }
+}
