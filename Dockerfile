@@ -1,4 +1,6 @@
-FROM registry.access.redhat.com/ubi8/nodejs-10
+FROM centos/nodejs-8-centos7
+
+###FROM registry.access.redhat.com/ubi8/nodejs-10
 
 # This image provides a Node.JS environment you can use to run your Node.JS
 # applications.
