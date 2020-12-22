@@ -23,7 +23,7 @@ COPY ibm-iaccess-1.1.0.14-1.0.x86_64.rpm ./
 #RUN yum update -y
 
 # Install ODBC drivers
-RUN apk add unixODBC unixODBC-devel
+RUN yum install -y unixODBC unixODBC-devel
 RUN rpm -ivh ibm-iaccess-1.1.0.14-1.0.x86_64.rpm
 
 RUN yum update -y \
