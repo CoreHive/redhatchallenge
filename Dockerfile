@@ -30,9 +30,6 @@ RUN node -v
 RUN npm -v
 
 
-RUN npm install express pug odbc
-RUN npm install body-parser
-
 # Create app directory
 WORKDIR /usr/src/app
 
@@ -43,7 +40,11 @@ COPY package*.json ./
 
 COPY ibm-iaccess-1.1.0.14-1.0.ppc64le.rpm ./
 
-RUN yum install -y ibm-iaccess-1.1.0.14-1.0.ppc64le.rpm
+RUN yum install -y ibm-iaccess-1.1.0.14-1.0.ppc64le.rpm ;\
+yum install -y unixODBC unixODBC-devel
+
+RUN npm install express pug odbc
+RUN npm install body-parser
 
 # Bundle app source
 COPY . .
