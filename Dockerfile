@@ -1,4 +1,5 @@
-FROM quay.io/centos7/s2i-base-centos7
+FROM ubi8/nodejs-10
+#FROM quay.io/centos7/s2i-base-centos7
 
 # This image provides a Node.JS environment you can use to run your Node.JS
 # applications.
