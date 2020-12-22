@@ -48,11 +48,11 @@ RUN npm config set proxy null
 RUN npm config set https-proxy null
 RUN npm config set registry http://registry.npmjs.org/
 
-RUN npm install -g node-gyp
-RUN npm install -g express pug odbc body-parser
-#RUN npm install -g pug
-#RUN npm install -g odbc
-#RUN npm install -g body-parser
+#RUN npm install -g node-gyp
+RUN npm install -g pug
+RUN npm install -g odbc
+RUN npm install -g express 
+RUN npm install -g body-parser
 #RUN npm --registry http://registry.node-modules.io/ install -g express
 #RUN npm --registry http://registry.node-modules.io/ install -g pug
 #RUN npm --registry http://registry.node-modules.io/ install -g odbc
