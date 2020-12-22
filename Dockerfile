@@ -14,7 +14,7 @@ WORKDIR /usr/src/app
 COPY package*.json ./
 COPY ibm-iaccess-1.1.0.14-1.0.x86_64.rpm ./
 
-apk add ibm-iaccess-1.1.0.14-1.0.x86_64.rpm
+##apk add ibm-iaccess-1.1.0.14-1.0.x86_64.rpm
 
 RUN addgroup -g 1000 node \
     && adduser -u 1000 -G node -s /bin/sh -D node \
@@ -111,6 +111,7 @@ RUN apk add --no-cache --virtual .build-deps-yarn curl gnupg tar \
 COPY docker-entrypoint.sh /usr/local/bin/
 ENTRYPOINT ["docker-entrypoint.sh"]
 ## unixODBC
+RUN apk add unixodbc-dev unixodbc-bin unixodbc
 ##RUN apt-get install -y unixodbc-dev unixodbc-bin unixodbc
 
 # Bundle app source
