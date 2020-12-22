@@ -1,4 +1,4 @@
-FROM ubi8/s2i-base:rhel8.3
+FROM registry.access.redhat.com/ubi8/nodejs-10
 
 # This image provides a Node.JS environment you can use to run your Node.JS
 # applications.
