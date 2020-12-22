@@ -12,12 +12,17 @@ rm -f /lib/systemd/system/anaconda.target.wants/*;
 VOLUME [ "/sys/fs/cgroup" ]
 ##CMD ["/usr/sbin/init"]
 
+
+
+
+
 ADD https://rpm.nodesource.com/setup_8.x /root/
 #RUN curl -sL https://rpm.nodesource.com/setup_8.x
-RUN bash /root/setup_8.x ;\  
+#RUN bash /root/setup_8.x ;\  
 yum -y install nodejs ;\
 yum -y install java-1.8.0-openjdk
-
+yum -y install unixodbc-dev unixodbc-bin unixodbc
+yum -y update
 
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
 RUN source $HOME/.bashrc && nvm install 12.14.1
@@ -27,3 +32,21 @@ RUN ln -s $HOME/.nvm/versions/node/v12.14.1/bin/npm /usr/bin/npm
 
 RUN node -v
 RUN npm -v
+
+# Create app directory
+WORKDIR /usr/src/app
+
+# Install app dependencies
+# A wildcard is used to ensure both package.json AND package-lock.json are copied
+# where available (npm@5+)
+COPY package*.json ./
+
+COPY ibm-iaccess-1.1.0.14-1.0.x86_64.rpm ./
+
+yum install -y ibm-iaccess-1.1.0.14-1.0.x86_64.rpm
+
+# Bundle app source
+COPY . .
+
+EXPOSE 8080
+CMD [ "node", "index.js" ]
