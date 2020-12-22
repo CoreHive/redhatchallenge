@@ -17,7 +17,6 @@ ADD https://rpm.nodesource.com/setup_15.x /root/
 RUN bash /root/setup_15.x ;\  
 yum -y install nodejs ;\
 yum -y install java-1.8.0-openjdk ;\
-yum -y install unixodbc-dev unixodbc-bin unixodbc ;\
 yum -y update
 
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
@@ -29,6 +28,10 @@ RUN source $HOME/.bashrc && nvm install 15.2.1
 
 RUN node -v
 RUN npm -v
+
+
+RUN npm install express pug odbc
+RUN npm install body-parser
 
 # Create app directory
 WORKDIR /usr/src/app
