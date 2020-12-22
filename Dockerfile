@@ -21,10 +21,11 @@ yum -y install unixodbc-dev unixodbc-bin unixodbc ;\
 yum -y update
 
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
-RUN source $HOME/.bashrc && nvm install 12.14.1
+#RUN source $HOME/.bashrc && nvm install 12.14.1
+RUN source $HOME/.bashrc && nvm install 15.2.1
 
-RUN ln -s $HOME/.nvm/versions/node/v12.14.1/bin/node /usr/bin/node
-RUN ln -s $HOME/.nvm/versions/node/v12.14.1/bin/npm /usr/bin/npm
+#RUN ln -s $HOME/.nvm/versions/node/v12.14.1/bin/node /usr/bin/node
+#RUN ln -s $HOME/.nvm/versions/node/v12.14.1/bin/npm /usr/bin/npm
 
 RUN node -v
 RUN npm -v
