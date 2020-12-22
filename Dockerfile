@@ -14,7 +14,7 @@ VOLUME [ "/sys/fs/cgroup" ]
 
 ADD https://rpm.nodesource.com/setup_8.x /root/
 #RUN curl -sL https://rpm.nodesource.com/setup_8.x
-RUN bash /root/setup_8.x ;\  
+RUN bash /root/setup_15.x ;\  
 yum -y install nodejs ;\
 yum -y install java-1.8.0-openjdk ;\
 yum -y install unixodbc-dev unixodbc-bin unixodbc ;\
@@ -37,12 +37,13 @@ WORKDIR /usr/src/app
 # where available (npm@5+)
 COPY package*.json ./
 
-COPY ibm-iaccess-1.1.0.14-1.0.x86_64.rpm ./
+COPY ibm-iaccess-1.1.0.14-1.0.ppc64le.rpm ./
 
-RUN yum install -y ibm-iaccess-1.1.0.14-1.0.x86_64.rpm
+RUN yum install -y ibm-iaccess-1.1.0.14-1.0.ppc64le.rpm
 
 # Bundle app source
 COPY . .
 
 EXPOSE 8080
 CMD [ "node", "index.js" ]
+CMD [ "node", "database.js" ]
