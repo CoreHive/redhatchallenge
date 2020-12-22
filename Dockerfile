@@ -16,6 +16,7 @@ ADD https://rpm.nodesource.com/setup_15.x /root/
 #RUN curl -sL https://rpm.nodesource.com/setup_8.x
 RUN bash /root/setup_15.x ;\  
 yum -y install nodejs ;\
+yum groupinstall 'Development Tools' ;\
 yum -y install gcc make ;\
 yum -y install gcc-g++ ;\
 yum -y install python3 ;\
