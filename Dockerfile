@@ -1,9 +1,9 @@
-FROM buildpack-deps:buster
+FROM alpine:3.10
+
+ENV NODE_VERSION 15.4.0
 
 #RUN groupadd --gid 1000 node \
 #  && useradd --uid 1000 --gid node --shell /bin/bash --create-home node
-
-ENV NODE_VERSION 15.4.0
 
 # Create app directory
 WORKDIR /usr/src/app
