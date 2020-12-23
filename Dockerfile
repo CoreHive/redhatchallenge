@@ -18,7 +18,7 @@ RUN bash /root/setup_15.x ;\
 yum -y install nodejs ;\
 yum groupinstall 'Development Tools' ;\
 yum -y install gcc make ;\
-yum -y install gcc-g++ ;\
+yum -y install gcc-c++ ;\
 yum -y install python3 ;\
 yum -y install java-1.8.0-openjdk ;\
 yum -y update
