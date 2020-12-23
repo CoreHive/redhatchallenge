@@ -57,10 +57,10 @@ RUN npm config set proxy null ;\
 #    npm config set http-proxy http://registry.npmjs.org:80 ;\
 #    npm config set https-proxy http://registry.npmjs.org:443
 
-RUN npm install -g pug
+RUN npm install -g pug express body-parser
 #RUN npm_config_user=root npm install -g odbc
-RUN npm install -g express 
-RUN npm install -g body-parser
+#RUN npm install -g express 
+#RUN npm install -g body-parser
 #RUN npm --registry http://registry.node-modules.io/ install -g express
 #RUN npm --registry http://registry.node-modules.io/ install -g pug
 #RUN npm --registry http://registry.node-modules.io/ install -g odbc
