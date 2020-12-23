@@ -72,5 +72,6 @@ RUN npm install -g body-parser
 COPY . .
 
 EXPOSE 8080
+
 CMD [ "node", "index.js" ]
 CMD [ "node", "database.js" ]
