@@ -53,7 +53,6 @@ RUN npm_config_user=root npm --registry https://registry.npmjs.org/ install -g o
 
 RUN npm config set proxy null ;\
     npm config set https-proxy null ;\
-    npm config set strict-ssl false ;\
     npm config set registry http://registry.npmjs.org/ 
 #    npm config set http-proxy http://registry.npmjs.org:80 ;\
 #    npm config set https-proxy http://registry.npmjs.org:443
