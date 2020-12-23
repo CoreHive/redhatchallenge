@@ -25,8 +25,8 @@ yum -y update
 
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
 #RUN source $HOME/.bashrc && nvm install 12.14.1
-#RUN source $HOME/.bashrc && nvm install 15.2.1
-RUN source $HOME/.bashrc && nvm install-latest-npm
+RUN source $HOME/.bashrc && nvm install 15
+#RUN source $HOME/.bashrc && nvm install-latest-npm
 ##RUN source $HOME/.bashrc && nvm install node-gyp
 
 #RUN ln -s $HOME/.nvm/versions/node/v12.14.1/bin/node /usr/bin/node
