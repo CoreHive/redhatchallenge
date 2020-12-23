@@ -54,9 +54,9 @@ RUN npm_config_user=root npm install odbc
 RUN npm config set proxy null ;\
     npm config set https-proxy null ;\
     npm config set strict-ssl false ;\
-    npm config set registry http://registry.npmjs.org/ ;\
-    npm config set http-proxy http://registry.npmjs.org:80 ;\
-    npm config set https-proxy http://registry.npmjs.org:443
+    npm config set registry http://registry.npmjs.org/ 
+#    npm config set http-proxy http://registry.npmjs.org:80 ;\
+#    npm config set https-proxy http://registry.npmjs.org:443
 
 RUN npm install -g pug
 #RUN npm_config_user=root npm install -g odbc
