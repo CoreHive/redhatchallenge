@@ -49,7 +49,7 @@ RUN yum install -y ibm-iaccess-1.1.0.14-1.0.ppc64le.rpm ;\
 yum install -y unixODBC unixODBC-devel
 #RUN npm install -g node-gyp
 #RUN npm install -g odbc
-RUN npm_config_user=root npm install odbc
+RUN npm_config_user=root npm --registry https://registry.npmjs.org/ install -g odbc
 
 RUN npm config set proxy null ;\
     npm config set https-proxy null ;\
