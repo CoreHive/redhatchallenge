@@ -6,6 +6,7 @@ RUN \
     curl \
     openssh-client \
     python \
+    python-devel \
     py-boto \
     py-dateutil \
     py-httplib2 \
@@ -14,8 +15,6 @@ RUN \
     py-pip \
     py-setuptools \
     py-yaml \
-    py2-dev \
-    py3-dev \
     build-base \
     gcc \
     tar && \
