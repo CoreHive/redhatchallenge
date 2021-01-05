@@ -1,5 +1,5 @@
 FROM ppc64le/alpine:3.7
-ARG VERSION=2.7.2
+ARG VERSION=2.7.15
 
 RUN \
   apk add --no-cache \
