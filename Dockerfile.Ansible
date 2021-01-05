@@ -14,8 +14,8 @@ RUN \
     py-pip \
     py-setuptools \
     py-yaml \
-    python2-dev \
-    python3-dev \
+    py2-dev \
+    py3-dev \
     build-base \
     gcc \
     tar && \
