@@ -1,10 +1,6 @@
 FROM ppc64le/alpine:3.7
 ARG VERSION=2.7.2
 
-FROM ppc64le/alpine:3.7
-RUN apk add --no-cache mysql-client
-
-
 RUN \
   apk add --no-cache \
     curl \
@@ -18,7 +14,7 @@ RUN \
     py-pip \
     py-setuptools \
     py-yaml \
-    gcc \
+    build-base \
     tar && \
   pip install --upgrade pip python-keyczar && \
   rm -rf /var/cache/apk/*
