@@ -7,6 +7,7 @@ RUN \
     openssh-client \
     python \
     python-devel \
+    py-devel \
     py-boto \
     py-dateutil \
     py-httplib2 \
