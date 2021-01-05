@@ -2,7 +2,7 @@ FROM alpine:3.7
 ARG VERSION=2.7.2
 
 RUN \
-  apk-install \
+  yum install -y \
     curl \
     openssh-client \
     python \
