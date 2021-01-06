@@ -9,6 +9,7 @@ RUN yum -y update && \
   yum -y install libffi libffi-devel && \
 ###  yum -y install -y python-devel libkrb5-devel && \
   yum install python3-pip -y && \
+  yum install libssl-dev -y && \
   pip3 install --upgrade pip && \
   pip3 install --upgrade virtualenv && \
   pip3 install pywinrm[kerberos] && \
@@ -17,6 +18,8 @@ RUN yum -y update && \
   pip install --upgrade pip python-keyczar && \
   pip3 install ansible 
   rm -rf /var/cache/apk/*
+
+RUN yum update -y 
 
 RUN mkdir /etc/ansible/ /ansible
 RUN echo "[local]" >> /etc/ansible/hosts && \
