@@ -2,18 +2,25 @@ FROM centos:8
 ENV container docker
 ARG VERSION=2.7.15
 
-
-
-RUN yum -y update && \
-  yum -y install -y gcc python-dev libkrb5-dev && \
-  yum -y install python3-pip -y && \
-  pip3 install --upgrade pip && \
-  pip3 install --upgrade virtualenv && \
-  pip3 install pywinrm[kerberos] && \
-  yum install -y krb5-user -y && \ 
-  pip3 install pywinrm && \
+RUN \
+  yum install -y \
+    curl \
+    openssh-client \
+    python \
+    python-devel \
+    python3-devel \
+    py-boto \
+    py-dateutil \
+    py-httplib2 \
+    py-jinja2 \
+    py-paramiko \
+    py-pip \
+    py-setuptools \
+    py-yaml \
+    build-base \
+    gcc \
+    tar && \
   pip install --upgrade pip python-keyczar && \
-  pip3 install ansible 
   rm -rf /var/cache/apk/*
 
 RUN mkdir /etc/ansible/ /ansible
