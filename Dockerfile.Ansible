@@ -13,7 +13,7 @@ RUN yum -y update && \
   pip3 install --upgrade pip && \
   pip3 install --upgrade virtualenv && \
   pip3 install pywinrm[kerberos] && \
-  yum install -y krb5-user -y && \ 
+  ### yum install -y krb5-user -y && \ 
   pip3 install pywinrm && \
   pip install --upgrade pip python-keyczar && \
   pip install cryptography && \
