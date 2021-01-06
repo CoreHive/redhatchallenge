@@ -1,5 +1,4 @@
 FROM ppc64le/centos:latest 
-FROM ibmcom/ansible-ppc64le
 ENV container docker
 ARG VERSION=2.7.15
 
