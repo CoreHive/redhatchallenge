@@ -1,4 +1,4 @@
-FROM centos:8
+FROM ppc64le/centos:latest
 ENV container docker
 ARG VERSION=2.7.15
 
