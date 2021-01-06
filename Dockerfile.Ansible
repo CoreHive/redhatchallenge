@@ -7,7 +7,8 @@ ARG VERSION=2.7.15
 RUN yum -y update && \
   yum -y install -y gcc python36 && \
 ###  yum -y install -y python-devel libkrb5-devel && \
-  yum -y install python3-pip -y && \
+  yum install python3-pip -y && \
+  yum install python-devel -y && \
   pip3 install --upgrade pip && \
   pip3 install --upgrade virtualenv && \
   pip3 install pywinrm[kerberos] && \
