@@ -8,7 +8,7 @@ RUN yum -y update && \
   yum -y install -y gcc python36 && \
 ###  yum -y install -y python-devel libkrb5-devel && \
   yum install python3-pip -y && \
-  yum install python-devel -y && \
+  yum install python3-dev -y && \
   pip3 install --upgrade pip && \
   pip3 install --upgrade virtualenv && \
   pip3 install pywinrm[kerberos] && \
