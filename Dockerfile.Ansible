@@ -17,7 +17,7 @@ RUN yum -y update && \
   pip3 install pywinrm && \
   pip install --upgrade pip python-keyczar && \
   pip install cryptography && \
-  pip3 install ansible 
+  pip3 install ansible && \
   rm -rf /var/cache/apk/*
 
 RUN yum update -y 
