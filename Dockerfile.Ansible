@@ -6,6 +6,7 @@ ARG VERSION=2.7.15
 
 RUN yum -y update && \
   yum -y install -y gcc python36 python36-devel && \
+  yum -y install libffi libffi-devel && \
 ###  yum -y install -y python-devel libkrb5-devel && \
   yum install python3-pip -y && \
   pip3 install --upgrade pip && \
