@@ -1,4 +1,4 @@
-I ran my local environment on Ubuntu 18.04 LTS running in WSL on Windows 10.
+Environment Centos 8 ppc64le
 
 ## Step 1 - Install Node.js:
 ```
