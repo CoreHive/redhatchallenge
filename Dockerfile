@@ -11,7 +11,7 @@ rm -f /lib/systemd/system/sockets.target.wants/*initctl*; \
 rm -f /lib/systemd/system/basic.target.wants/*;\
 rm -f /lib/systemd/system/anaconda.target.wants/*;
 VOLUME [ "/sys/fs/cgroup" ]
-##CMD ["/usr/sbin/init"]
+CMD ["/usr/sbin/init"]
 
 ADD https://rpm.nodesource.com/setup_15.x /root/
 #RUN curl -sL https://rpm.nodesource.com/setup_8.x
@@ -70,4 +70,4 @@ EXPOSE 8080
 
 CMD [ "node", "index.js" ]
 CMD [ "node", "database.js" ]
-CMD ["/usr/sbin/init"]
+#CMD ["/usr/sbin/init"]
