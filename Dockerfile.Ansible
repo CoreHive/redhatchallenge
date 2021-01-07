@@ -17,7 +17,6 @@ RUN yum -y update && \
   pip install cryptography && \
   pip3 install ansible && \
   rm -rf /var/cache/apk/*
-CMD ["/usr/sbin/init"]
 
 RUN yum update -y 
 
@@ -42,4 +41,5 @@ ENV PATH /ansible/bin:$PATH
 ENV PYTHONPATH /ansible/lib
 
 ENTRYPOINT ["ansible-playbook"]
+CMD ["/usr/sbin/init"]
 
