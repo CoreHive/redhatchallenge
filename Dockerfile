@@ -68,6 +68,6 @@ COPY . .
 
 EXPOSE 8080
 
-#CMD [ "node", "index.js" ]
+CMD [ "node", "index.js" ]
 #CMD [ "node", "database.js" ]
-CMD ["/usr/sbin/init"]
+#CMD ["/usr/sbin/init"]
