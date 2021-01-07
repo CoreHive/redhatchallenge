@@ -1,0 +1,49 @@
+---
+- hosts: all 
+  gather_facts: no
+  collections:
+    - ibm.openshift
+  
+  vars: 
+    checkout_dir: '/usr/src/app'
+
+  tasks:
+  - name: Install Node js
+    command: yum install nodejs10 -y
+    ignore_errors: True
+
+  - name: verify git has been installed
+    stat:
+      path: /usr/bin/git
+    register: git_stat
+
+  - name: Install git if it is not there
+    command: yum install git -y
+    when: git_stat.stat.exists == false
+
+  - name: upgrade yum 
+    command: yum upgrade -y
+    
+  - name: set http.sslVerify for git
+    command: 'git config --global http.sslVerify false'
+    ignore_errors: true 
+
+  - name: clone repo
+    git:
+      repo: 'https://github.com/CoreHive/redhatchallenge.git'
+      dest: '{{ checkout_dir }}'
+
+  - name: npm i
+    shell: "(npm  i  --scripts-prepend-node-path)"
+    args:
+      warn: False
+      chdir: '{{ checkout_dir }}/node_modules/patient360'
+      executable: /usr/bin/sh
+
+  - name: Start the demo application
+    shell: "(nohup node index.js >/dev/null 2>&1 &)"
+    args:
+      warn: False
+      chdir: '{{ checkout_dir }}/node_modules/patient360'
+      executable: /usr/bin/sh
+    async: 10%   

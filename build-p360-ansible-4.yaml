@@ -1,0 +1,78 @@
+﻿kind: Build
+apiVersion: build.openshift.io/v1
+metadata:
+  annotations:
+    openshift.io/build-config.name: p360-ansible
+    openshift.io/build.clone-of: p360-ansible-3
+    openshift.io/build.number: '4'
+    openshift.io/build.pod-name: p360-ansible-4-build
+  selfLink: /apis/build.openshift.io/v1/namespaces/eu-team9/builds/p360-ansible-4
+  resourceVersion: '75235567'
+  name: p360-ansible-4
+  uid: ff44e503-aebf-4084-9666-cb66b497f0eb
+  creationTimestamp: '2021-01-07T03:21:39Z'
+  namespace: eu-team9
+  ownerReferences:
+    - apiVersion: build.openshift.io/v1
+      kind: BuildConfig
+      name: p360-ansible
+      uid: e7f27d4f-8daa-46ff-9a51-44677f59a8f9
+      controller: true
+  labels:
+    app: p360
+    app.kubernetes.io/component: p360-ansible
+    app.kubernetes.io/instance: p360-ansible
+    app.kubernetes.io/part-of: p360
+    buildconfig: p360-ansible
+    openshift.io/build-config.name: p360-ansible
+    openshift.io/build.start-policy: Serial
+spec:
+  nodeSelector: null
+  output:
+    to:
+      kind: ImageStreamTag
+      name: 'p360-ansible:latest'
+    pushSecret:
+      name: builder-dockercfg-k9vxr
+  resources: {}
+  triggeredBy: null
+  strategy:
+    type: Docker
+    dockerStrategy:
+      dockerfilePath: Dockerfile.Ansible
+  postCommit: {}
+  serviceAccount: builder
+  source:
+    type: Git
+    git:
+      uri: 'https://github.com/CoreHive/redhatchallenge.git'
+    contextDir: /
+  revision:
+    type: Git
+    git:
+      commit: 14219e84993f04d57543afe189eb1c94292c67ab
+      author:
+        name: Madhu Konidena
+        email: mkonidena@Madhus-MBP.fios-router.home
+      committer:
+        name: Madhu Konidena
+        email: mkonidena@Madhus-MBP.fios-router.home
+      message: redhat-challange9
+status:
+  phase: Running
+  startTimestamp: '2021-01-07T03:21:40Z'
+  outputDockerImageReference: >-
+    image-registry.openshift-image-registry.svc:5000/eu-team9/p360-ansible:latest
+  config:
+    kind: BuildConfig
+    namespace: eu-team9
+    name: p360-ansible
+  output: {}
+  stages:
+    - name: FetchInputs
+      startTime: '2021-01-07T03:21:45Z'
+      durationMilliseconds: 1409
+      steps:
+        - name: FetchGitSource
+          startTime: '2021-01-07T03:21:45Z'
+          durationMilliseconds: 1409

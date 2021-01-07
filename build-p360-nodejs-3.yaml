@@ -1,0 +1,105 @@
+﻿kind: Build
+apiVersion: build.openshift.io/v1
+metadata:
+  name: p360-nodejs-3
+  namespace: eu-team9
+  selfLink: /apis/build.openshift.io/v1/namespaces/eu-team9/builds/p360-nodejs-3
+  uid: 6c9e829f-bcb9-4bb6-aa0a-11c8e16ffdbe
+  resourceVersion: '75252389'
+  creationTimestamp: '2021-01-07T03:14:06Z'
+  labels:
+    app: p360
+    app.kubernetes.io/component: p360-nodejs
+    app.kubernetes.io/instance: p360-nodejs
+    app.kubernetes.io/part-of: p360
+    buildconfig: p360-nodejs
+    openshift.io/build-config.name: p360-nodejs
+    openshift.io/build.start-policy: Serial
+  annotations:
+    openshift.io/build-config.name: p360-nodejs
+    openshift.io/build.clone-of: p360-nodejs-2
+    openshift.io/build.number: '3'
+    openshift.io/build.pod-name: p360-nodejs-3-build
+  ownerReferences:
+    - apiVersion: build.openshift.io/v1
+      kind: BuildConfig
+      name: p360-nodejs
+      uid: efabcf68-ed59-45d8-bdce-8aa9c162d81a
+      controller: true
+spec:
+  serviceAccount: builder
+  source:
+    type: Git
+    git:
+      uri: 'https://github.com/CoreHive/redhatchallenge.git'
+    contextDir: /
+  revision:
+    type: Git
+    git:
+      commit: 14219e84993f04d57543afe189eb1c94292c67ab
+      author:
+        name: Madhu Konidena
+        email: mkonidena@Madhus-MBP.fios-router.home
+      committer:
+        name: Madhu Konidena
+        email: mkonidena@Madhus-MBP.fios-router.home
+      message: redhat-challange9
+  strategy:
+    type: Docker
+    dockerStrategy:
+      dockerfilePath: Dockerfile
+  output:
+    to:
+      kind: ImageStreamTag
+      name: 'p360-nodejs:latest'
+    pushSecret:
+      name: builder-dockercfg-k9vxr
+  resources: {}
+  postCommit: {}
+  nodeSelector: null
+  triggeredBy: null
+status:
+  phase: Complete
+  startTimestamp: '2021-01-07T03:14:10Z'
+  completionTimestamp: '2021-01-07T04:03:42Z'
+  duration: 2972000000000
+  outputDockerImageReference: 'image-registry.openshift-image-registry.svc:5000/eu-team9/p360-nodejs:latest'
+  config:
+    kind: BuildConfig
+    namespace: eu-team9
+    name: p360-nodejs
+  output:
+    to:
+      imageDigest: 'sha256:db1e1aeebbc96fef5d8faa47d4ee1f273da41a4a3bf060fb1ecdf959a74a015c'
+  stages:
+    - name: FetchInputs
+      startTime: '2021-01-07T03:14:26Z'
+      durationMilliseconds: 4842
+      steps:
+        - name: FetchGitSource
+          startTime: '2021-01-07T03:14:26Z'
+          durationMilliseconds: 4842
+    - name: PullImages
+      startTime: '2021-01-07T03:14:43Z'
+      durationMilliseconds: 246526
+      steps:
+        - name: PullBaseImage
+          startTime: '2021-01-07T03:14:43Z'
+          durationMilliseconds: 124965
+        - name: PullBaseImage
+          startTime: '2021-01-07T03:16:48Z'
+          durationMilliseconds: 121561
+    - name: Build
+      startTime: '2021-01-07T03:18:49Z'
+      durationMilliseconds: 2572662
+      steps:
+        - name: DockerBuild
+          startTime: '2021-01-07T03:18:49Z'
+          durationMilliseconds: 2572662
+    - name: PushImage
+      startTime: '2021-01-07T04:02:39Z'
+      durationMilliseconds: 58577
+      steps:
+        - name: PushDockerImage
+          startTime: '2021-01-07T04:02:39Z'
+          durationMilliseconds: 58577
