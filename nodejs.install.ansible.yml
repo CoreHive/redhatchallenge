@@ -8,6 +8,11 @@
     checkout_dir: '/usr/src/app'
 
   tasks:
+  - name: run the CL command to create a library
+    ibmi_cl_command:
+      cmd: CHGUSRPRF USRPRF(NODDEV) STATUS(*ENABLED)
+    register: chg_usr_result
+
   - name: Install Node js
     command: yum install nodejs10 -y
     ignore_errors: True
