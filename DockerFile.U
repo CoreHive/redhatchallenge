@@ -1,0 +1,28 @@
+# from debian stretch 9.8, node 10
+FROM node:10-stretch-slim
+
+# get apt-transport-https, etc., so that we can install by https protocol
+RUN apt-get update \
+ && apt-get install -y \
+      apt-transport-https \
+      build-essential \
+      make
+      
+  # expose port 80 in containers of this image
+EXPOSE 80
+
+# copy working directory into the image and set as pwd
+ADD . /var/www/app
+WORKDIR /var/www/app
+
+# install dependencies for the application
+RUN npm install \
+ && npm cache clean --force
+
+# build the application
+RUN npm run build
+
+# i am just guessing how you want your app started here, npm?
+ENTRYPOINT ["npm"]
+# and then this, which makes "npm run start --host 0.0.0.0"
+CMD ["run", "start", "--host", "0.0.0.0"]
