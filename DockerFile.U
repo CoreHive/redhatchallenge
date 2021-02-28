@@ -16,6 +16,9 @@ WORKDIR /var/www/app
 # A wildcard is used to ensure both package.json AND package-lock.json are copied
 # where available (npm@5+)
 COPY package*.json ./
+COPY node_modules /usr/local/lib/
+COPY public /usr/local/lib/
+COPY views /usr/local/lib/
 
 COPY ibm-iaccess-1.1.0.14-1.0.amd64.deb ./
 RUN apt-get install -y ./ibm-iaccess-1.1.0.14-1.0.amd64.deb
@@ -50,7 +53,7 @@ EXPOSE 8080
 #RUN npm -v
 
 # i am just guessing how you want your app started here, npm?
-ENTRYPOINT ["npm"]
+#ENTRYPOINT ["npm"]
 # and then this, which makes "npm run start --host 0.0.0.0"
 ###CMD ["run", "start", "--host", "0.0.0.0"]
 CMD [ "node", "index.js" ]
