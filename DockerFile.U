@@ -21,8 +21,8 @@ COPY ibm-iaccess-1.1.0.14-1.0.amd64.deb ./
 RUN apt install -y ./ibm-iaccess-1.1.0.14-1.0.amd64.deb
 
 # Install locally (in my case: ~/node_modules)
-RUN npm set strict-ssl false
-RUN npm install phantomjs-prebuilt
+RUN npm_config_user=root npm set strict-ssl false
+RUN npm_config_user=root npm install phantomjs-prebuilt
 
 # Add to path
 RUN export PATH=$PATH:/var/www/app/node_modules/phantomjs-prebuilt/lib/phantom/bin/
@@ -31,12 +31,12 @@ RUN export PATH=$PATH:/var/www/app/node_modules/phantomjs-prebuilt/lib/phantom/b
 #RUN phantomjs --version
 
 # install dependencies for the application
-RUN npm install build-tools -g \
+RUN npm_config_user=root npm install build-tools -g \
  && npm cache clean --force
 
 RUN apt-get install -y unixodbc unixodbc-dev
 RUN npm_config_user=root npm install -g odbc
-RUN npm install -g pug express body-parser
+RUN npm_config_user=root npm install -g pug express body-parser
 
 # Bundle app source
 COPY . .
@@ -44,7 +44,7 @@ COPY . .
 EXPOSE 8080
 
 # build the application
-RUN npm run build
+RUN npm_config_user=root npm run build
 RUN node -v
 RUN npm -v
 
