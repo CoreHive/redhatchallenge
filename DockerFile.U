@@ -18,8 +18,8 @@ WORKDIR /var/www/app
 COPY package*.json ./
 
 COPY ibm-iaccess-1.1.0.14-1.0.amd64.deb ./
-RUN apt install -y ./ibm-iaccess-1.1.0.14-1.0.amd64.deb
-RUN apt install python3.8
+RUN apt-get install -y ./ibm-iaccess-1.1.0.14-1.0.amd64.deb
+RUN apt-get install python
 
 # Install locally (in my case: ~/node_modules)
 RUN npm_config_user=root npm set strict-ssl false
