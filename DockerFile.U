@@ -25,8 +25,8 @@ RUN npm install \
  && npm cache clean --force
 
 RUN apt-get install -y unixodbc unixodbc-dev
-RUN npm_config_user=root npm --registry https://registry.npmjs.org/ install -g odbc
-RUN npm --registry http://registry.npmjs.org/ install -g pug express body-parser
+RUN npm_config_user=root npm install -g odbc
+RUN npm install -g pug express body-parser
 
 # Bundle app source
 COPY . .
