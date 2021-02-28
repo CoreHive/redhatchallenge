@@ -45,7 +45,7 @@ COPY . .
 EXPOSE 8080
 
 # build the application
-RUN npm_config_user=root npm run build && gh-pages -d build
+#RUN npm_config_user=root npm run build && gh-pages -d build
 RUN node -v
 RUN npm -v
 
