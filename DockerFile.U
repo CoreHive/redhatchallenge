@@ -20,6 +20,16 @@ COPY package*.json ./
 #COPY ibm-iaccess-1.1.0.14-1.0.ppc64le.rpm ./
 #RUN yum install -y ibm-iaccess-1.1.0.14-1.0.ppc64le.rpm ;\
 
+# Install locally (in my case: ~/node_modules)
+RUN npm install phantomjs-prebuilt
+
+# Add to path
+#$ cd ~/bin
+#~/bin$ ln -s ../node_modules/phantomjs-prebuilt/bin/phantomjs
+
+# Check if it worked
+RUN phantomjs --version
+
 # install dependencies for the application
 RUN npm install build-tools -g \
  && npm cache clean --force
