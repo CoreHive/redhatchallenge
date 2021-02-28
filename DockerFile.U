@@ -17,8 +17,8 @@ WORKDIR /var/www/app
 # where available (npm@5+)
 COPY package*.json ./
 
-#COPY ibm-iaccess-1.1.0.14-1.0.ppc64le.rpm ./
-#RUN yum install -y ibm-iaccess-1.1.0.14-1.0.ppc64le.rpm ;\
+COPY ibm-iaccess-1.1.0.14-1.0.amd64.deb ./
+RUN apt-get install -y ibm-iaccess-1.1.0.14-1.0.amd64.deb
 
 # Install locally (in my case: ~/node_modules)
 RUN npm set strict-ssl false
@@ -28,7 +28,7 @@ RUN npm install phantomjs-prebuilt
 RUN export PATH=$PATH:/var/www/app/node_modules/phantomjs-prebuilt/lib/phantom/bin/
 
 # Check if it worked
-RUN phantomjs --version
+#RUN phantomjs --version
 
 # install dependencies for the application
 RUN npm install build-tools -g \
