@@ -3,7 +3,7 @@ ENV container docker
 
 ADD https://rpm.nodesource.com/setup_15.x /root/
 #RUN curl -sL https://rpm.nodesource.com/setup_8.x
-RUN bash /root/setup_15.x ;\  
+RUN sudo bash /root/setup_15.x ;\  
 yum install -y nodejs ;\
 yum groupinstall 'Development Tools' ;\
 yum -y install gcc make ;\
