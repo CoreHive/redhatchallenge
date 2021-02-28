@@ -8,9 +8,6 @@ RUN apt-get update \
       build-essential \
       make
 
-RUN node -v
-RUN npm -v
-
 # copy working directory into the image and set as pwd
 ADD . /var/www/app
 WORKDIR /var/www/app
@@ -38,6 +35,8 @@ EXPOSE 8080
 
 # build the application
 RUN npm run build
+RUN node -v
+RUN npm -v
 
 # i am just guessing how you want your app started here, npm?
 ENTRYPOINT ["npm"]
