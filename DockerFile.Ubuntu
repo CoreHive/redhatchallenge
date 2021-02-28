@@ -1,5 +1,5 @@
-FROM node:10-alpine
-FROM centos:latest
+FROM node:10-stretch-slim
+FROM centos/nodejs-10-centos7:latest
 ENV container docker
 
 RUN (cd /lib/systemd/system/sysinit.target.wants/; for i in *; do [ $i == \
@@ -17,7 +17,7 @@ CMD ["/usr/sbin/init"]
 ADD https://rpm.nodesource.com/setup_15.x /root/
 #RUN curl -sL https://rpm.nodesource.com/setup_8.x
 RUN bash /root/setup_15.x ;\  
-yum -y install nodejs ;\
+yum install -y nodejs ;\
 yum groupinstall 'Development Tools' ;\
 yum -y install gcc make ;\
 yum -y install gcc-c++ ;\
