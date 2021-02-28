@@ -27,13 +27,13 @@ CMD ["/usr/sbin/init"]
 ADD https://rpm.nodesource.com/setup_15.x /root/
 #RUN curl -sL https://rpm.nodesource.com/setup_8.x
 RUN bash /root/setup_15.x ;\  
-apt -y install nodejs ;\
+apt install nodejs ;\
 apt groupinstall 'Development Tools' ;\
-apt -y install gcc make ;\
-apt -y install gcc-c++ ;\
-apt -y install python3 ;\
-apt -y install java-1.8.0-openjdk ;\
-apt -y update
+apt install gcc make ;\
+apt install gcc-c++ ;\
+apt install python3 ;\
+apt install java-1.8.0-openjdk ;\
+apt update
 
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
 #RUN source $HOME/.bashrc && nvm install 12.14.1
@@ -57,8 +57,8 @@ COPY package*.json ./
 
 COPY ibm-iaccess-1.1.0.14-1.0.ppc64le.rpm ./
 
-RUN apt install -y ibm-iaccess-1.1.0.14-1.0.ppc64le.rpm ;\
-apt install -y unixODBC unixODBC-devel
+RUN apt install ibm-iaccess-1.1.0.14-1.0.ppc64le.rpm ;\
+apt install unixODBC unixODBC-devel
 RUN npm_config_user=root npm --registry https://registry.npmjs.org/ install -g odbc
 RUN npm --registry http://registry.npmjs.org/ install -g pug express body-parser
 
