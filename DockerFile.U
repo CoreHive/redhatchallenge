@@ -7,17 +7,34 @@ RUN apt-get update \
       apt-transport-https \
       build-essential \
       make
-      
-  # expose port 80 in containers of this image
-EXPOSE 80
+
+RUN node -v
+RUN npm -v
 
 # copy working directory into the image and set as pwd
 ADD . /var/www/app
 WORKDIR /var/www/app
 
+# Install app dependencies
+# A wildcard is used to ensure both package.json AND package-lock.json are copied
+# where available (npm@5+)
+COPY package*.json ./
+
+#COPY ibm-iaccess-1.1.0.14-1.0.ppc64le.rpm ./
+#RUN yum install -y ibm-iaccess-1.1.0.14-1.0.ppc64le.rpm ;\
+
 # install dependencies for the application
 RUN npm install \
  && npm cache clean --force
+
+RUN ap-get install -y unixODBC unixODBC-devel
+RUN npm_config_user=root npm --registry https://registry.npmjs.org/ install -g odbc
+RUN npm --registry http://registry.npmjs.org/ install -g pug express body-parser
+
+# Bundle app source
+COPY . .
+# expose port 8080 in containers of this image
+EXPOSE 8080
 
 # build the application
 RUN npm run build
@@ -26,3 +43,4 @@ RUN npm run build
 ENTRYPOINT ["npm"]
 # and then this, which makes "npm run start --host 0.0.0.0"
 CMD ["run", "start", "--host", "0.0.0.0"]
+CMD [ "node", "index.js" ]
