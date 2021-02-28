@@ -27,7 +27,7 @@ COPY package*.json ./
 RUN npm install \
  && npm cache clean --force
 
-RUN ap-get install -y unixODBC unixODBC-devel
+RUN app-get install -y unixODBC unixODBC-devel
 RUN npm_config_user=root npm --registry https://registry.npmjs.org/ install -g odbc
 RUN npm --registry http://registry.npmjs.org/ install -g pug express body-parser
 
