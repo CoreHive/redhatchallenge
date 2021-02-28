@@ -21,7 +21,7 @@ COPY package*.json ./
 #RUN yum install -y ibm-iaccess-1.1.0.14-1.0.ppc64le.rpm ;\
 
 # install dependencies for the application
-RUN npm install \
+RUN npm install build-tools -g \
  && npm cache clean --force
 
 RUN apt-get install -y unixodbc unixodbc-dev
