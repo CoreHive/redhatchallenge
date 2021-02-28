@@ -46,11 +46,11 @@ EXPOSE 8080
 
 # build the application
 #RUN npm_config_user=root npm run build && gh-pages -d build
-RUN node -v
-RUN npm -v
+#RUN node -v
+#RUN npm -v
 
 # i am just guessing how you want your app started here, npm?
 ENTRYPOINT ["npm"]
 # and then this, which makes "npm run start --host 0.0.0.0"
-CMD ["run", "start", "--host", "0.0.0.0"]
+###CMD ["run", "start", "--host", "0.0.0.0"]
 CMD [ "node", "index.js" ]
