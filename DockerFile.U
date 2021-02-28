@@ -15,10 +15,11 @@ WORKDIR /var/www/app
 # Install app dependencies
 # A wildcard is used to ensure both package.json AND package-lock.json are copied
 # where available (npm@5+)
-COPY package*.json ./
-COPY node_modules /usr/local/lib/
-COPY public /usr/local/lib/
-COPY views /usr/local/lib/
+COPY package*.json .
+COPY . .
+#COPY node_modules /usr/local/lib/
+#COPY public /usr/local/lib/
+#COPY views /usr/local/lib/
 
 COPY ibm-iaccess-1.1.0.14-1.0.amd64.deb ./
 RUN apt-get install -y ./ibm-iaccess-1.1.0.14-1.0.amd64.deb
