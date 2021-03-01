@@ -8,6 +8,13 @@ WORKDIR /usr/src/app
 # where available (npm@5+)
 COPY package*.json ./
 
+# get apt-transport-https, etc., so that we can install by https protocol
+RUN apt-get update \
+ && apt-get install -y \
+      apt-transport-https \
+      build-essential \
+      make
+
 RUN npm install
 
 COPY ibm-iaccess-1.1.0.14-1.0.amd64.deb ./
