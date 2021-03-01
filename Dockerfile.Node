@@ -18,5 +18,5 @@ RUN npm --registry http://registry.npmjs.org/ install -g pug express body-parser
 # Bundle app source
 COPY . .
 
-EXPOSE 8080
+EXPOSE 8081
 CMD [ "node", "index.js" ]
