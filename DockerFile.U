@@ -44,7 +44,7 @@ RUN npm_config_user=root npm install -g odbc
 RUN npm_config_user=root npm install -g pug express body-parser
 
 # Bundle app source
-COPY . .
+COPY . /var/www/app/
 # expose port 8080 in containers of this image
 EXPOSE 8081
 
