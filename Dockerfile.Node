@@ -37,9 +37,11 @@ RUN npm_config_user=root npm install -g odbc
 RUN npm_config_user=root npm install -g pug express body-parser
 
 # Bundle app source
-COPY . .
+COPY . ./
 
 RUN export NODE_PATH=/usr/src/app/node_modules
 
 EXPOSE 8081
+CMD [ "node", "database.js" ]
+
 CMD [ "node", "index.js" ]
