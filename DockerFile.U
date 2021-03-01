@@ -1,5 +1,5 @@
 # from debian stretch 9.8, node 10
-FROM node:10-stretch-slim
+FROM node
 
 # get apt-transport-https, etc., so that we can install by https protocol
 RUN apt-get update \
@@ -46,7 +46,7 @@ RUN npm_config_user=root npm install -g pug express body-parser
 # Bundle app source
 COPY . .
 # expose port 8080 in containers of this image
-EXPOSE 8080
+EXPOSE 8081
 
 # build the application
 #RUN npm_config_user=root npm run build && gh-pages -d build
