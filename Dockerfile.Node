@@ -9,8 +9,11 @@ WORKDIR /usr/src/app
 COPY package*.json ./
 
 RUN npm install
-# If you are building your code for production
-# RUN npm ci --only=production
+
+RUN yum install -y ibm-iaccess-1.1.0.14-1.0.ppc64le.rpm ;\
+yum install -y unixODBC unixODBC-devel
+RUN npm_config_user=root npm --registry https://registry.npmjs.org/ install -g odbc
+RUN npm --registry http://registry.npmjs.org/ install -g pug express body-parser
 
 # Bundle app source
 COPY . .
