@@ -39,7 +39,7 @@ RUN npm_config_user=root npm install -g pug express body-parser
 # Bundle app source
 COPY . .
 
-NODE_PATH=/var/www/app/node_modules
+RUN export NODE_PATH=/var/www/app/node_modules
 
 EXPOSE 8081
 CMD [ "node", "index.js" ]
