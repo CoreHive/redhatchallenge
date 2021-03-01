@@ -26,7 +26,7 @@ RUN npm_config_user=root npm set strict-ssl false
 RUN npm_config_user=root npm install phantomjs-prebuilt
 
 # Add to path
-RUN export PATH=$PATH:/var/www/app/node_modules/phantomjs-prebuilt/lib/phantom/bin/
+RUN export PATH=$PATH:/usr/src/app/node_modules/phantomjs-prebuilt/lib/phantom/bin/
 
 # install dependencies for the application
 RUN npm_config_user=root npm install build-tools -g \
@@ -39,7 +39,7 @@ RUN npm_config_user=root npm install -g pug express body-parser
 # Bundle app source
 COPY . .
 
-RUN export NODE_PATH=/var/www/app/node_modules
+RUN export NODE_PATH=/usr/src/app/node_modules
 
 EXPOSE 8081
 CMD [ "node", "index.js" ]
