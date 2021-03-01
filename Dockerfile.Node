@@ -41,7 +41,8 @@ COPY . ./
 
 RUN export NODE_PATH=/usr/src/app/node_modules
 
-EXPOSE 8081
+#EXPOSE 8081
+EXPOSE 3000
 CMD [ "node", "database.js" ]
 
 CMD [ "node", "index.js" ]
