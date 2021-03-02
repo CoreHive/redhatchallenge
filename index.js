@@ -11,7 +11,7 @@ app.use(bodyParser.json());
 
 const db2 = require('./database');
 
-const connection_string = `Driver=IBM i Access ODBC Driver;System=169.48.22.130;UID=NODEDEV2;Password=n0d32020`;
+const connection_string = `Driver=IBM i Access ODBC Driver;System=dev400.cmaontheweb.com;UID=NODEDEV;Password=n0d32020`;
 
 app.set('view engine', 'pug')
 
