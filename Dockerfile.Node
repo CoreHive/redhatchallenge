@@ -21,6 +21,9 @@ COPY ibm-iaccess-1.1.0.14-1.0.amd64.deb ./
 RUN apt-get install -y ./ibm-iaccess-1.1.0.14-1.0.amd64.deb
 RUN apt-get install -y python3
 
+# Install editor
+RUN apt-get install -y nano
+
 # Install locally (in my case: ~/node_modules)
 RUN npm_config_user=root npm set strict-ssl false
 RUN npm_config_user=root npm install phantomjs-prebuilt
